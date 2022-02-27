@@ -1,0 +1,25 @@
+load("target_list_merge.bzl", "generate_target_list_merge_rule_invocation")
+load("@bazel_skylib//rules:common_settings.bzl", "string_list_flag")
+
+package(default_visibility = ["//visibility:public"])
+
+string_list_flag(
+    name = "subsets",
+    build_setting_default = ["subset1"],
+)
+
+config_setting(
+    name = "windows",
+    constraint_values = [
+        "@platforms//os:windows",
+    ],
+)
+
+config_setting(
+    name = "linux",
+    constraint_values = [
+        "@platforms//os:linux",
+    ],
+)
+
+generate_target_list_merge_rule_invocation()

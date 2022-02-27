@@ -1,0 +1,9 @@
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+package(default_visibility = ["//visibility:public"])
+
+cc_library(
+    name = "dylib2",
+    srcs = glob(["main/*.cpp"]),
+    hdrs = glob(["public/*.h"]),
+)
